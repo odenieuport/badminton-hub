@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --color-bg: #f6f8f6;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef3ee;
+  --color-border: #dde4dd;
+  --color-text: #1a2420;
+  --color-text-muted: #5c6b62;
+
+  --color-primary: #1f7a4d;
+  --color-primary-light: #e2f3e8;
+  --color-primary-dark: #145c39;
+
+  --color-accent: #2563eb;
+  --color-accent-light: #e6edfd;
+
+  --color-up: #1f7a4d;
+  --color-up-bg: #e2f3e8;
+  --color-down: #c0392b;
+  --color-down-bg: #fbeae7;
+  --color-warn: #b5842a;
+  --color-warn-bg: #faf1e0;
+
+  --shadow-soft: 0 1px 2px rgba(20, 30, 24, 0.04), 0 4px 16px rgba(20, 30, 24, 0.06);
+  --shadow-card: 0 2px 8px rgba(20, 30, 24, 0.06), 0 8px 24px rgba(20, 30, 24, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #12160f;
+    --color-surface: #1a2018;
+    --color-surface-2: #202821;
+    --color-border: #303a2f;
+    --color-text: #eef3ee;
+    --color-text-muted: #9caa9f;
+
+    --color-primary: #4fbf85;
+    --color-primary-light: #1c3327;
+    --color-primary-dark: #6fd39c;
+
+    --color-accent: #6d9bfa;
+    --color-accent-light: #1c2740;
+
+    --color-up: #4fbf85;
+    --color-up-bg: #1c3327;
+    --color-down: #ef7b6a;
+    --color-down-bg: #3a2220;
+    --color-warn: #e0b258;
+    --color-warn-bg: #3a2f1a;
+
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
