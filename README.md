@@ -45,6 +45,30 @@ npm run test
   `/simulateur`) et espace admin (`/admin/*`) : gestion des joueurs, saisie
   de matchs, import CSV en masse, déclenchement de l'évaluation mensuelle.
 
+## Publication sur GitHub Pages
+
+Le déploiement est automatisé via `.github/workflows/deploy-pages.yml` (GitHub
+Actions) à chaque push sur `main` ou sur la branche de ce chantier. Un seul
+réglage manuel est requis, une fois :
+
+1. Dans le dépôt GitHub → **Settings → Pages**, sous « Build and deployment »,
+   choisir **Source: GitHub Actions**.
+2. Le dépôt doit être **public** (ou sur un plan GitHub payant) : GitHub Pages
+   n'est pas disponible gratuitement sur un dépôt privé. Aucun secret n'est
+   commité (`.env.local` est ignoré), donc le passage en public est sans
+   risque.
+
+Après ça, chaque push déclenche le workflow, qui build (`GITHUB_PAGES=true`,
+pour le bon `base` Vite) puis publie `dist/` sur
+`https://<utilisateur>.github.io/badminton-hub/`. L'app utilise `HashRouter`
+(URLs du type `.../#/rankings`) pour fonctionner sans configuration serveur
+supplémentaire sur Pages.
+
+La clé Supabase utilisée au build (`VITE_SUPABASE_PUBLISHABLE_KEY`) est la clé
+publique/« publishable », conçue pour être exposée côté client et protégée par
+les policies RLS (lecture publique, écriture admin) — elle est donc committée
+telle quelle dans le workflow, pas besoin de secret GitHub.
+
 ## Comptes admin
 
 Un nouveau compte créé via `/admin/login` (« S'inscrire ») n'a **aucun

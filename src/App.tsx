@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import { AuthProvider } from './hooks/useAuth'
 import { Layout } from './components/layout/Layout'
 import { Home } from './pages/Home'
@@ -17,7 +17,7 @@ import { AdminEvaluation } from './pages/admin/AdminEvaluation'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <Routes>
           <Route element={<Layout />}>
@@ -40,6 +40,6 @@ export default function App() {
           </Route>
         </Routes>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
